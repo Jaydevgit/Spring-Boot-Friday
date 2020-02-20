@@ -1,0 +1,34 @@
+spring:
+  profiles:
+    active: dev
+  devtools:
+    restart:
+      additional-paths: resources/**,static/**,templates/**
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.0.104:3307/mysql?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=UTC
+    username: root
+    password: my-secret-pw
+    platform: mysql
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 1
+    minIdle: 3
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 30000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+
+  mybatis:
+    type-aliases-package: com.example.demo.model
+    mapper-locations: classpath:/mybatis-mappers/*.xml
+    configuration:
+      mapUnderscoreToCamelCase: true
+
+api-url: /api
