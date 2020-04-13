@@ -10,4 +10,5 @@ import lombok.Data;
 public class SysRoleUser {
     private Integer userId;
     private Integer roleId;
+
 }
